@@ -1,2 +1,1 @@
-Welcome test
-test
+A memory-based card-matching game made for the final project of the UI course.
