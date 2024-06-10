@@ -11,9 +11,9 @@
 			<p>Put your memory skills to the test.</p>
 		</header>
 		<main>
-			<button id="playButton">Play!</button>
-			<button id="helpButton">How to Play</button>
-			<div id="helpModal" class="modal">
+			<button class="menuButton" id="playButton">Play!</button>
+			<button class="menuButton" id="helpButton">How to Play</button>
+			<div class="modal" id="helpModal">
 				<div class="modalContent">
 					<span class="close">&times;</span>
 					<h3>Instructions</h3>
@@ -21,16 +21,15 @@
 					<p>Once no time remains, all ingredients and amounts will enter a word bank, and you must place them back in their correct spot in the recipe.</p>
 				</div>
 			</div>
-			<div id="gameArea" style="display:none;">
-				<img id="recipeImage" src="" alt="Recipe Image">
+			<div id="gameArea">
+				<img id="recipeImage" alt="Recipe Image">
 				<div id="recipeInfo"></div>
-				<div id="timer">15</div>
+				<div id="timer"></div>
 				<div id="ingredientButtons"></div>
-				<button id="doneButton" style="display:none;">Done</button>
-				<button id="restartButton" style="display:none;">Restart</button>
+				<button class="menuButton" id="doneButton">Done</button>
+				<button class="menuButton" id="restartButton">Restart</button>
 			</div>
 		</main>
-		<footer></footer>
 		<script src="js/main.js"></script>
 		<script src="js/modal.js"></script>
 	</body>
