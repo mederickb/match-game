@@ -1,23 +1,19 @@
-// could be merged with main js later, placed here to avoid conflicts
+document.addEventListener('DOMContentLoaded', () => {
+    const helpButton = document.getElementById('helpButton');
+    const helpModal = document.getElementById('helpModal');
+    const closeModal = document.getElementsByClassName('close')[0];
 
-// Declare variables
-var modal = document.getElementById("helpModal");
-var btn = document.getElementById("helpButton");
-var span = document.getElementsByClassName("close")[0];
+    helpButton.onclick = function() {
+        helpModal.style.display = 'block';
+    }
 
-// Open modal when button is pressed
-btn.onclick = function() {
-	modal.style.display = "block";
-}
+    closeModal.onclick = function() {
+        helpModal.style.display = 'none';
+    }
 
-// Close modal when X is pressed
-span.onclick = function() {
-	modal.style.display = "none";
-}
-
-// Close modal if empty space is clicked
-window.onclick = function(event) {
-	if (event.target == modal) {
-		modal.style.display = "none";
-	}
-} 
+    window.onclick = function(event) {
+        if (event.target == helpModal) {
+            helpModal.style.display = 'none';
+        }
+    }
+});
