@@ -23,7 +23,7 @@
           { "name": "Cheddar cheese", "quantity": "1 cup" },
           { "name": "Black olives", "quantity": "1/2 cup" },
           { "name": "Green onions", "quantity": "1/4 cup" },
-          { "name": "Sour cream", "quantity": "1/2 cup" }
+          { "name": "Sour cream", "quantity": "1/2 cup" },
           { "name": "Avocado", "quantity": "1/2" }
         ]
       },
@@ -52,8 +52,8 @@
           { "name": "Sesame seeds", "quantity": "2 tbsp" },
           { "name": "Cinnamon", "quantity": "1 stick" },
           { "name": "Chicken broth", "quantity": "2 cups" },
-          { "name": "Chocolate", "quantity": "50g" }
-          { "name": "Onion", "quantity": "1/2" },
+          { "name": "Chocolate", "quantity": "50g" },
+          { "name": "Onion", "quantity": "1/2" }
         ]
       },
       {
@@ -66,8 +66,8 @@
           { "name": "Flour", "quantity": "1/2 cup" },
           { "name": "Tomato sauce", "quantity": "1 cup" },
           { "name": "Onion", "quantity": "1" },
-          { "name": "Garlic", "quantity": "2 cloves" }
-          { "name": "Cilantro", "quantity": "1/8 cup" },
+          { "name": "Garlic", "quantity": "2 cloves" },
+          { "name": "Cilantro", "quantity": "1/8 cup" }
         ]
       }
     ],
