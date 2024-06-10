@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', () => {
                 if (!button.classList.contains('selected')) {
                     button.classList.add('selected');
+                    button.style.backgroundColor = 'lightblue'; // Change background color when clicked
+                    
                 } else {
                     button.classList.remove('selected');
                 }
@@ -84,8 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedButtons.forEach(button => {
             if (correctIngredients.includes(button.textContent)) {
                 button.classList.add('correct');
+                button.style.backgroundColor = 'lightgreen'; // Change background color to green for correct guesses
             } else {
                 button.classList.add('incorrect');
+                button.style.backgroundColor = 'lightcoral'; // Change background color to red for incorrect guesses
             }
         });
         doneButton.style.display = 'none';
