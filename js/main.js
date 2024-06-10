@@ -43,32 +43,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showIngredientButtons() {
-        ingredientButtons.innerHTML = '';
-        const allIngredients = [...currentRecipe.ingredients, ...recipes.flatMap(recipe => recipe.ingredients)];
-        const uniqueIngredients = Array.from(new Set(allIngredients.map(ing => `${ing.quantity} ${ing.name}`))).map(ing => {
-            const [quantity, ...nameParts] = ing.split(' ');
-            return { name: nameParts.join(' '), quantity };
+    ingredientButtons.innerHTML = '';
+
+    const currentIngredients = currentRecipe.ingredients.map(ing => `${ing.quantity} ${ing.name}`);
+    
+    const allOtherIngredients = recipes.flatMap(recipe => recipe.ingredients); // get ingredients from other recipes
+    const otherIngredients = allOtherIngredients.filter(ing => !currentIngredients.includes(`${ing.quantity} ${ing.name}`)); // filter out ingredients that are not already in the current recipe
+    const randomOtherIngredients = shuffleArray(otherIngredients).slice(0, Math.min(20 - currentIngredients.length, otherIngredients.length));  // select up to 20 other random ingredients
+    const allIngredients = [...currentIngredients, ...randomOtherIngredients.map(ing => `${ing.quantity} ${ing.name}`)]; // Combine current recipe ingredients with random other ingredients
+
+    
+    const shuffledIngredients = shuffleArray(allIngredients); // shuffle combined list
+
+    shuffledIngredients.forEach(ing => {
+        const button = document.createElement('button');
+        button.textContent = ing;
+        button.addEventListener('click', () => {
+            if (!button.classList.contains('selected')) {
+                button.classList.add('selected');
+                button.style.backgroundColor = 'lightblue'; // Change background color when clicked
+            } else {
+                button.classList.remove('selected');
+                button.style.backgroundColor = ''; // Reset background color when unclicked
+            }
         });
-        uniqueIngredients.forEach(ing => {
-            const button = document.createElement('button');
-            button.textContent = `${ing.quantity} ${ing.name}`;
-            button.addEventListener('click', () => {
-                if (!button.classList.contains('selected')) {
-                    button.classList.add('selected');
-                    button.style.backgroundColor = 'lightblue'; // Change background color when clicked
-                    
-                } else {
-                    button.classList.remove('selected');
-                }
-            });
-            ingredientButtons.appendChild(button);
-        });
-        doneButton.style.display = 'inline-block';
-        timer = 60;
-        timerDisplay.textContent = timer;
-        countdownInterval = setInterval(updateSelectionTimer, 1000);
+        ingredientButtons.appendChild(button);
+    });
+
+    doneButton.style.display = 'inline-block';
+    timer = 60;
+    timerDisplay.textContent = timer;
+    countdownInterval = setInterval(updateSelectionTimer, 1000);
+}
+    
+        // random shuffle of ingrdients 
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
     }
 
+    
     function updateSelectionTimer() {
         timer--;
         timerDisplay.textContent = timer;
