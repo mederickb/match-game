@@ -22,12 +22,18 @@
 				</div>
 			</div>
 			<div id="gameArea" style="display:none;">
-				<img id="recipeImage" src="" alt="Recipe Image">
-				<div id="recipeInfo"></div>
-				<div id="timer">15</div>
+				<h2 id="recipeTitle"></h2>
+				<div id="recipeContainer">
+					<img id="recipeImage" src="" alt="Recipe Image">
+					<div id="recipeContent">
+						<div id="recipeInfo"></div>
+						<div id="timerHeader" class="timer-header">TIME LEFT</div>
+						<div id="timer" class="timer"></div>
+					</div>
+				</div>
 				<div id="ingredientButtons"></div>
-				<button id="doneButton" style="display:none;">Done</button>
-				<button id="restartButton" style="display:none;">Restart</button>
+				<button id="doneButton" class="button" style="display:none;">Done</button>
+				<button id="restartButton" class="button" style="display:none;">Restart</button>
 			</div>
 		</main>
 		<footer></footer>

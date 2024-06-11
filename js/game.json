@@ -92,5 +92,20 @@
         { "name": "Paprika", "quantity": "1 tsp" },
         { "name": "Carne asada", "quantity": "500g" },
         { "name": "Lettuce", "quantity": "1 head" }
+    ],
+
+    "scoreTitles": [
+        { "range": "100", "title": "Master Chef" },
+        { "range": "90-99", "title": "Walter White" },
+        { "range": "80-89", "title": "Ratatouille" },
+        { "range": "70-79", "title": "Gordon Ramsay's Apprentice" },
+        { "range": "60-69", "title": "Patty Flipper SpongeBob" },
+        { "range": "50-59", "title": "Chef Boyardee" },
+        { "range": "40-49", "title": "Mr. Bean" },
+        { "range": "30-39", "title": "Swedish Chef" },
+        { "range": "20-29", "title": "Steamed Ham Skinner" },
+        { "range": "10-19", "title": "Bender Rodriguez" },
+        { "range": "0-9", "title": "Señor No-Bueno" }
     ]
 }
+

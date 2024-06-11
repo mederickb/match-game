@@ -1,8 +1,12 @@
 /* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
 
 /* STRUCTURAL */
 body {
 	background-color: beige;
+	font-family: 'Roboto', sans-serif;
 }
 
 /* Header */
@@ -83,8 +87,40 @@ button:active {
 
 /* Game Styles */
 #gameArea img {
-	max-width: 100%;
+	max-width: 25%;
 	height: auto;
+}
+
+#recipeTitle {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#recipeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+	padding-left: 30%;
+
+}
+
+#recipeContent {
+    width: 100%; 
+	padding-right: 40%;
+}
+
+#recipeImage {
+    max-width: 70%;
+    height: auto;
+    margin-right: 2rem;
+	border-radius: 10px;
+}
+
+#recipeInfo {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 #timer {
@@ -111,4 +147,32 @@ button:active {
 
 #ingredientButtons button.incorrect {
 	background-color: lightcoral;
+}
+
+.button {
+    font-size: 1.5rem; /* Increase font size */
+    font-weight: bold; /* Make font bolder */
+    color: black;
+    cursor: pointer;
+    padding: 1rem 2rem; /* Increase padding */
+    margin: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 9px #4b4b4b;
+}
+
+.button:hover {
+    background-color: lightgray; /* Example hover background color */
+}
+
+.button:active {
+    background-color: darkgray; /* Example active background color */
+    box-shadow: 0 5px #3f3f3f;
+    transform: translateY(4px);
+}
+
+.timer-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+	padding-top: 10%;
 }
