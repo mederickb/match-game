@@ -7,36 +7,36 @@
 	</head>
 	<body>
 		<header>
-			<h1>The Cooking Game!</h1>
-			<p>Put your memory skills to the test.</p>
+			<h1><a href="index.html">~== The Cooking Game ==~</a></h1>
+			<h2>Put your memory skills to the test!</h2>
 		</header>
 		<main>
-			<button id="playButton">Play!</button>
-			<button id="helpButton">How to Play</button>
-			<div id="helpModal" class="modal">
+			<p><em>Here's what's on the menu today...</em></p>
+			<button class="menuButton" id="playButton">Play!</button>
+			<button class="menuButton" id="helpButton">How to Play</button>
+			<div class="modal" id="modalHelp">
 				<div class="modalContent">
-					<span class="close">&times;</span>
+					<span class="modalClose">&times;</span>
 					<h3>Instructions</h3>
 					<p>When the play button is pressed, you will be presented with a recipe. You must try to memorize it to the best of your ability before the timer runs out.</p>
 					<p>Once no time remains, all ingredients and amounts will enter a word bank, and you must place them back in their correct spot in the recipe.</p>
 				</div>
 			</div>
-			<div id="gameArea" style="display:none;">
+			<div id="gameArea">
 				<h2 id="recipeTitle"></h2>
 				<div id="recipeContainer">
-					<img id="recipeImage" src="" alt="Recipe Image">
+					<img id="recipeImage" alt="Recipe Image">
 					<div id="recipeContent">
 						<div id="recipeInfo"></div>
-						<div id="timerHeader" class="timer-header">TIME LEFT</div>
-						<div id="timer" class="timer"></div>
+						<div id="timerHeader">TIME LEFT</div>
+						<div id="timer"></div>
 					</div>
 				</div>
 				<div id="ingredientButtons"></div>
-				<button id="doneButton" class="button" style="display:none;">Done</button>
-				<button id="restartButton" class="button" style="display:none;">Restart</button>
+				<button class="menuButton" id="doneButton">Done</button>
+				<button class="menuButton" id="restartButton">Restart</button>
 			</div>
 		</main>
-		<footer></footer>
 		<script src="js/main.js"></script>
 		<script src="js/modal.js"></script>
 	</body>
