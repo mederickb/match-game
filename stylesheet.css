@@ -72,6 +72,30 @@ button:disabled {
 	width: 10rem;
 }
 
+#gameArea .menuButton {
+	display: none;
+}
+
+#ingredientButtons button {
+	font-size: 1rem;
+	padding: 0.5rem;
+	box-shadow: 0 5px #4b4b4b;
+	margin: 0.7rem;
+}
+
+#ingredientButtons button:active {
+	box-shadow: 0 1px #3f3f3f;
+	transform: translateY(3px);
+}
+
+#ingredientButtons button.correct {
+	background-color: lightgreen;
+}
+
+#ingredientButtons button.incorrect {
+	background-color: lightcoral;
+}
+
 /* Modal */
 .modal {
 	display: none; 
@@ -100,7 +124,6 @@ button:disabled {
 	0% { opacity: 0; }
 	100% { opacity: 100; }
 }
-
 
 .modalClose {
 	color: #aaa;
@@ -131,69 +154,57 @@ button:disabled {
 #gameTopLeft {
 	display: flex;
 	flex-direction: column;
+	justify-content: left;
+	text-align: left;
 	width: 50%;
+	padding: 1rem;
 }
 
 #gameTopRight {
 	display: flex;
 	flex-direction: column;
 	width: 50%;
+	padding: 1rem;
 }
 
-#recipeContainer {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+#gameArea p {
+	margin: 0;
 }
 
-#recipeContent {
-	text-align: left;
+#gameArea h2 {
+	font-size: 1.8rem;
+	font-weight: 600;
+	margin: 0 0 1.2rem 0;
 }
 
 #recipeImage {
-    max-width: 50%;
     height: auto;
-    margin-right: 2rem;
 	border-radius: 0.5rem;
+	max-width: 30rem;
 }
 
 #recipeInfo {
     font-size: 1.2rem;
     font-weight: 400;
     margin-top: 1rem;
+	text-align: left;
 }
 
-#timer {
-	font-size: 2rem;
-	margin-top: 1rem;
-}
-
-#ingredientButtons button.correct {
-	background-color: lightgreen;
-}
-
-#ingredientButtons button.incorrect {
-	background-color: lightcoral;
-}
-
-.button {
-    margin: 1rem;
+#timerArea {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 1px solid black;
+	padding: 0.5rem;
+	width: 8rem;
 }
 
 #timerHeader {
     font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
-	padding-top: 10%;
-	display: flex;
 }
 
-#timerArea {
-	flex-direction: column;
-	border: 1px solid black;
-	padding: 0.5rem;
-}
-
-#gameArea .menuButton {
-	display: none;
+#timer {
+	font-size: 1.5rem;
+	margin-top: 1rem;
 }
