@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // get all necessary elements and assign to constants
     const playButton = document.getElementById('playButton');
     const gameArea = document.getElementById('gameArea');
     const recipeImage = document.getElementById('recipeImage');
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let recipes, randomIngredients, currentRecipe, timer, countdownInterval, gameActive = false;
 
+    // access the JSON file
     fetch('js/game.json')
         .then(response => response.json())
         .then(data => {
@@ -19,10 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
             scoreTitles = data.scoreTitles; 
         });
 
+    // create event listeners for the menu buttons
     playButton.addEventListener('click', startGame);
     doneButton.addEventListener('click', checkAnswers);
     restartButton.addEventListener('click', restartGame);
 
+    /**
+     * Starts the game by picking a recipe at random, enabling the necessary elements, and starting the timer.
+     */
     function startGame() {
         gameActive = true;
         currentRecipe = recipes[Math.floor(Math.random() * recipes.length)];
@@ -37,6 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
         countdownInterval = setInterval(updateTimer, 1000);
     }
 
+    /**
+     * Tracks the timer for the memorization phase of the game and triggers the next phase at the end.
+     * 
+     * Currently set at 15s in startGame().
+     */
     function updateTimer() {
         timer--;
         timerDisplay.textContent = timer;
@@ -47,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    /**
+     * Triggers the cooking phase of the game by enabling the ingredient buttons and starting a new timer.
+     */
     function showIngredientButtons() {
         ingredientButtons.innerHTML = '';
 
@@ -80,7 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
         countdownInterval = setInterval(updateSelectionTimer, 1000);
     }
 
-        // random shuffle of ingredients 
+    /**
+     * Shuffles the ingredients around in an array so they appear in a random order.
+     * 
+     * @param {Array} array Array of ingredients.
+     * @returns Array of shuffled ingredients.
+     */
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -89,6 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return array;
     }
 
+    /**
+     * Tracks the timer for the cooking phase of the game and triggers scoring at the end.
+     * 
+     * Currently set at 60s in showIngredientButtons().
+     */
     function updateSelectionTimer() {
         timer--;
         timerDisplay.textContent = timer;
@@ -100,6 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
         timerDisplay.textContent = timer;
     }
 
+    /**
+     * Checks if the user-submitted answers are correct and displays their score.
+     */
     function checkAnswers() {
         clearInterval(countdownInterval);
         const selectedButtons = document.querySelectorAll('#ingredientButtons button.selected');
@@ -172,6 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('timerHeader').style.display = 'none'; // hide timer title
     }
 
+    /**
+     * Returns the site to it's default state by disabling and wiping elements.
+     */
     function restartGame() {
         gameActive = false;
         gameArea.style.display = 'none';
@@ -184,4 +214,27 @@ document.addEventListener('DOMContentLoaded', () => {
         timerDisplay.textContent = '';
         document.getElementById('timerHeader').style.display = 'block'; 
     }
+
+    // MODAL
+    // assign necessary elements
+    const modalButton = document.getElementById('helpButton');
+	const modalHelp = document.getElementById('modalHelp');
+	const modalClose = document.getElementsByClassName('modalClose')[0];
+
+    // open modal if button pressed
+    modalButton.onclick = function() {
+		modalHelp.style.display = 'block';
+	}
+
+    // close modal if X clicked
+	modalClose.onclick = function() {
+		modalHelp.style.display = 'none';
+	}
+
+    // close modal if outside area clicked
+	window.onclick = function(event) {
+		if (event.target == modalHelp) {
+			modalHelp.style.display = 'none';
+		}
+	}
 });
