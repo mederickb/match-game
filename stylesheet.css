@@ -1,5 +1,5 @@
 /* FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 /* STRUCTURAL */
 body {
@@ -21,8 +21,8 @@ main {
 
 /* Text */
 h1 {
-	font-family: serif;
-	font-size: 3rem;
+	font-family: 'Great Vibes', serif;
+	font-size: 3.5rem;
 	margin: 1rem;
 }
 
@@ -53,7 +53,7 @@ button {
 	width: 10rem;
 }
 
-button:hover {
+button:hover:enabled { /* only uses hover if button enabled*/
 	background-color: darkgray;
 }
 
@@ -62,12 +62,14 @@ button:active {
 	transform: translateY(6px);
 }
 
-.menuButton {
-	width: 10rem;
+button:disabled {
+	color: grey;
+	box-shadow: 0 3px #4b4b4b;
+	transform: translateY(6px);
 }
 
-#gameArea .menuButton {
-	display: none;
+.menuButton {
+	width: 10rem;
 }
 
 /* Modal */
@@ -89,7 +91,7 @@ button:active {
 	margin: 15% auto;
 	padding: 20px;
 	border: 1px solid #888;
-	width: 80%;
+	width: 60%;
 	border-radius: 0.5rem;
 	animation: fadeIn 0.5s;
 }
@@ -115,61 +117,56 @@ button:active {
 }
 
 /* Game Styles */
-#gameArea img {
-	max-width: 25%;
-	height: auto;
+#gameArea {
 	display: none;
+	margin: 5rem;
 }
 
-#recipeTitle {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+#gameTop {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+#gameTopLeft {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+#gameTopRight {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
 }
 
 #recipeContainer {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-	padding-left: 30%;
-
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #recipeContent {
-    width: 100%; 
-	padding-right: 40%;
+	text-align: left;
 }
 
 #recipeImage {
-    max-width: 70%;
+    max-width: 50%;
     height: auto;
     margin-right: 2rem;
-	border-radius: 10px;
+	border-radius: 0.5rem;
 }
 
 #recipeInfo {
     font-size: 1.2rem;
     font-weight: 400;
     margin-top: 1rem;
-    font-family: 'Roboto', sans-serif;
 }
 
 #timer {
 	font-size: 2rem;
 	margin-top: 1rem;
 }
-
-/*using regular button styling for time being*/
-/*#ingredientButtons button {
-	display: inline-block;
-	margin: 0.5rem;
-	padding: 0.5rem;
-	border: 1px solid #ccc;
-	background-color: white;
-}
-
-#ingredientButtons button:hover {
-	background-color: grey;
-}*/
 
 #ingredientButtons button.correct {
 	background-color: lightgreen;
@@ -180,24 +177,7 @@ button:active {
 }
 
 .button {
-    font-size: 1.5rem; /* Increase font size */
-    font-weight: bold; /* Make font bolder */
-    color: black;
-    cursor: pointer;
-    padding: 1rem 2rem; /* Increase padding */
     margin: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 9px #4b4b4b;
-}
-
-.button:hover {
-    background-color: lightgray; /* Example hover background color */
-}
-
-.button:active {
-    background-color: darkgray; /* Example active background color */
-    box-shadow: 0 5px #3f3f3f;
-    transform: translateY(4px);
 }
 
 #timerHeader {
@@ -205,5 +185,15 @@ button:active {
     font-weight: bold;
     margin-bottom: 0.5rem;
 	padding-top: 10%;
+	display: flex;
+}
+
+#timerArea {
+	flex-direction: column;
+	border: 1px solid black;
+	padding: 0.5rem;
+}
+
+#gameArea .menuButton {
 	display: none;
 }

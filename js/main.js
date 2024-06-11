@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // get all necessary elements and assign to constants
     const playButton = document.getElementById('playButton');
     const gameArea = document.getElementById('gameArea');
+    const recipeTitle = document.getElementById('recipeTitle');
     const recipeImage = document.getElementById('recipeImage');
     const recipeInfo = document.getElementById('recipeInfo');
-    const timerHeader = document.getElementById('timerHeader');
     const timerDisplay = document.getElementById('timer');
     const ingredientButtons = document.getElementById('ingredientButtons');
     const doneButton = document.getElementById('doneButton');
@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
         recipeImage.src = `images/${currentRecipe.image}`;
         recipeImage.style.display = 'block';
         recipeInfo.innerHTML = currentRecipe.ingredients.map(ing => `${ing.quantity} ${ing.name}`).join('<br>');
-        playButton.style.display = 'none';
-        gameArea.style.display, timerHeader.style.display = 'block';
+        playButton.disabled = true;
+        gameArea.style.display = 'block';
         timer = 15;
         timerDisplay.textContent = timer;
         countdownInterval = setInterval(updateTimer, 1000);
@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function showIngredientButtons() {
         ingredientButtons.innerHTML = '';
+        ingredientButtons.style.display = 'block';
 
         const currentIngredients = currentRecipe.ingredients.map(ing => `${ing.quantity} ${ing.name}`);
 
@@ -162,11 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-
-
-        
         timerDisplay.innerHTML = 'Score: ' + scorePercentage + '%' + '<br>' + 'Cooking Level: "' + scoreTitle + '"'; // Display the score in place of timer
-        
         
         const allButtons = document.querySelectorAll('#ingredientButtons button'); // Highlight correct and incorrect selections
     
@@ -206,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gameActive = false;
         gameArea.style.display = 'none';
         recipeInfo.style.display = 'block';
-        playButton.style.display = 'inline-block';
+        playButton.disabled = false;
         restartButton.style.display = 'none';
         recipeInfo.innerHTML = '';
         recipeImage.src = '';
