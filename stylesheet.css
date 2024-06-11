@@ -148,22 +148,20 @@ button:disabled {
 #gameTop {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: center;
 }
 
 #gameTopLeft {
 	display: flex;
 	flex-direction: column;
-	justify-content: left;
+	justify-content: center;
 	text-align: left;
-	width: 50%;
-	padding: 1rem;
+	padding: 0 1rem 1rem 1rem;
 }
 
 #gameTopRight {
 	display: flex;
 	flex-direction: column;
-	width: 50%;
 	padding: 1rem;
 }
 
@@ -174,19 +172,19 @@ button:disabled {
 #gameArea h2 {
 	font-size: 1.8rem;
 	font-weight: 600;
-	margin: 0 0 1.2rem 0;
+	margin: 0 0 2rem 0;
 }
 
 #recipeImage {
     height: auto;
 	border-radius: 0.5rem;
-	max-width: 30rem;
+	max-width: 25rem;
 }
 
 #recipeInfo {
     font-size: 1.2rem;
     font-weight: 400;
-    margin-top: 1rem;
+    margin: 1rem;
 	text-align: left;
 }
 
@@ -194,9 +192,10 @@ button:disabled {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	border: 1px solid black;
-	padding: 0.5rem;
-	width: 8rem;
+	border: 1px dotted black;
+	padding: 0.3rem;
+	margin: 0 1rem 1rem 1rem;
+	width: 8.7rem;
 }
 
 #timerHeader {
@@ -206,5 +205,11 @@ button:disabled {
 
 #timer {
 	font-size: 1.5rem;
-	margin-top: 1rem;
+	margin-top: 0.1rem;
+}
+
+#bottom-divider {
+	display: none;
+	border-top: 1px solid lightgray;
+	margin: 1rem 0 1rem 0;
 }

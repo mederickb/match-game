@@ -5,10 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const recipeTitle = document.getElementById('recipeTitle');
     const recipeImage = document.getElementById('recipeImage');
     const recipeInfo = document.getElementById('recipeInfo');
+    const timerHeader = document.getElementById('timerHeader');
     const timerDisplay = document.getElementById('timer');
+    const scoreType = document.getElementById('scoreType');
     const ingredientButtons = document.getElementById('ingredientButtons');
     const doneButton = document.getElementById('doneButton');
     const restartButton = document.getElementById('restartButton');
+    const bottomDivider = document.getElementById('bottom-divider');
 
     let recipes, randomIngredients, currentRecipe, timer, countdownInterval, gameActive = false;
 
@@ -64,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showIngredientButtons() {
         ingredientButtons.innerHTML = '';
         ingredientButtons.style.display = 'block';
+        bottomDivider.style.display = 'block';
 
         const currentIngredients = currentRecipe.ingredients.map(ing => `${ing.quantity} ${ing.name}`);
 
@@ -142,12 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     
-        
         const totalIngredientsInRecipe = correctIngredients.length; // get total ingredients in the recipe
         const totalIngredientsSelected = selectedButtons.length; // get total ingredients selected (correct + incorrect)
         const totalIncorrectIngredientsSelected = totalIngredientsSelected - correctIngredientsSelected; // get total ingredients selected not in the recipe
     
-        
         const scorePercentage = Math.floor((correctIngredientsSelected / (totalIngredientsInRecipe + totalIncorrectIngredientsSelected)) * 100); // Calculate the score percentage
     
         // Get the corresponding title from the scoreTitles array
@@ -163,7 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        timerDisplay.innerHTML = 'Score: ' + scorePercentage + '%' + '<br>' + 'Cooking Level: "' + scoreTitle + '"'; // Display the score in place of timer
+        timerHeader.innerHTML = 'SCORE';
+        scoreType.innerHTML = scorePercentage + '%' + '<br>' + '"' + scoreTitle + '"'; // Display the score in place of timer
         
         const allButtons = document.querySelectorAll('#ingredientButtons button'); // Highlight correct and incorrect selections
     
@@ -193,13 +196,14 @@ document.addEventListener('DOMContentLoaded', () => {
         restartButton.style.display = 'inline-block';
 
         recipeInfo.style.display = 'block'; // display ingredient list back
-        document.getElementById('timerHeader').style.display = 'none'; // hide timer title
+        timerDisplay.style.display = 'none'; 
     }
 
     /**
      * Returns the site to it's default state by disabling and wiping elements.
      */
     function restartGame() {
+        // return game sections to defaults
         gameActive = false;
         gameArea.style.display = 'none';
         recipeInfo.style.display = 'block';
@@ -208,8 +212,14 @@ document.addEventListener('DOMContentLoaded', () => {
         recipeInfo.innerHTML = '';
         recipeImage.src = '';
         ingredientButtons.innerHTML = '';
+        bottomDivider.style.display = 'none';
+        // reset timer
+        timerHeader.textContent = 'TIME LEFT';
+        timerHeader.style.display = 'block'; 
         timerDisplay.textContent = '';
-        document.getElementById('timerHeader').style.display = 'block'; 
+        timerDisplay.style.display = 'block'; 
+        scoreType.textContent = '';
+        scoreType.style.display = 'none';
     }
 
     // MODAL
